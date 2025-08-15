@@ -360,7 +360,7 @@ func (e *Exchange) VaultModify(
 	vaultAddress string,
 	allowDeposits bool,
 	alwaysCloseOnWithdraw bool,
-) (*TransferResponse, error) {
+) (*VaultModifyResponse, error) {
 	timestamp := time.Now().UnixMilli()
 
 	action := VaultModifyAction{
@@ -387,14 +387,14 @@ func (e *Exchange) VaultModify(
 		return nil, err
 	}
 
-	var result TransferResponse
+	var result VaultModifyResponse
 	if err := json.Unmarshal(resp, &result); err != nil {
 		return nil, err
 	}
 	return &result, nil
 }
 
-func (e *Exchange) VaultDistribute(vaultAddress string, usd int) (*TransferResponse, error) {
+func (e *Exchange) VaultDistribute(vaultAddress string, usd int) (*VaultDistributeResponse, error) {
 	timestamp := time.Now().UnixMilli()
 
 	action := VaultDistributeAction{
@@ -420,7 +420,7 @@ func (e *Exchange) VaultDistribute(vaultAddress string, usd int) (*TransferRespo
 		return nil, err
 	}
 
-	var result TransferResponse
+	var result VaultDistributeResponse
 	if err := json.Unmarshal(resp, &result); err != nil {
 		return nil, err
 	}

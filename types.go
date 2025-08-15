@@ -349,6 +349,16 @@ type CreateVaultResponse struct {
 	Error  string `json:"error,omitempty"`
 }
 
+type VaultModifyResponse struct {
+	Status string `json:"status"`
+	Error  string `json:"error,omitempty"`
+}
+
+type VaultDistributeResponse struct {
+	Status string `json:"status"`
+	Error  string `json:"error,omitempty"`
+}
+
 type CreateSubAccountResponse struct {
 	Status string      `json:"status"`
 	Data   *SubAccount `json:"data,omitempty"`
